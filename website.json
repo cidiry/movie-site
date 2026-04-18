@@ -1,0 +1,457 @@
+[
+    {
+        "name": "茶杯狐",
+        "url": "https://cupfox.app",
+        "group": 1
+    },
+    {
+        "name": "搜片",
+        "url": "https://soupian.one",
+        "group": 1
+    },
+    {
+        "name": "聚合影视",
+        "url": "https://www.juheyingshi.com",
+        "group": 1
+    },
+    {
+        "name": "茶杯虎",
+        "url": "https://725998.com",
+        "group": 1
+    },
+    {
+        "name": "大师兄影视",
+        "url": "https://www.jxsgssn.com",
+        "group": 2
+    },
+    {
+        "name": "全民影视",
+        "url": "https://www.qmintv.com",
+        "group": 2
+    },
+    {
+        "name": "FreeOk",
+        "url": "https://www.freeok.vip",
+        "group": 2
+    },
+    {
+        "name": "TVB云播",
+        "url": "http://www.tvyb03.com",
+        "group": 2
+    },
+    {
+        "name": "APP影院",
+        "url": "https://app.movie",
+        "group": 2
+    },
+    {
+        "name": "旋风视频",
+        "url": "https://miao101.com",
+        "group": 2
+    },
+    {
+        "name": "乌龟影院",
+        "url": "https://www.wuguiyy.com",
+        "group": 2
+    },
+    {
+        "name": "新版6v影院",
+        "url": "https://www.66s.cc",
+        "group": 2
+    },
+    {
+        "name": "悟空视频",
+        "url": "https://www.wukongshipin.com",
+        "group": 2
+    },
+    {
+        "name": "BTNULL",
+        "url": "https://www.btnull.in",
+        "group": 2
+    },
+    {
+        "name": "大米星球",
+        "url": "https://dmys1.com",
+        "group": 2
+    },
+    {
+        "name": "一一影视",
+        "url": "https://www.yiyi2.com",
+        "group": 2
+    },
+    {
+        "name": "子子影院",
+        "url": "http://ziziyy1.com",
+        "group": 2
+    },
+    {
+        "name": "扛把子影院",
+        "url": "https://www.ququmc.com",
+        "group": 2
+    },
+    {
+        "name": "泡泡视频",
+        "url": "https://www.paopaoshipin.com",
+        "group": 2
+    },
+    {
+        "name": "大白影视",
+        "url": "https://dabai66.com",
+        "group": 2
+    },
+    {
+        "name": "酷绘视频",
+        "url": "http://www.kuhuiv.com",
+        "group": 2
+    },
+    {
+        "name": "来看点播",
+        "url": "https://www.lkvod.cc",
+        "group": 2
+    },
+    {
+        "name": "喵喵电影",
+        "url": "https://www.2345ka.com",
+        "group": 2
+    },
+    {
+        "name": "爱迪",
+        "url": "http://aidi.tv",
+        "group": 2
+    },
+    {
+        "name": "TMTV",
+        "url": "https://chongtmtv.com",
+        "group": 2
+    },
+    {
+        "name": "电影狗",
+        "url": "https://www.dianyinggou.com",
+        "group": 2
+    },
+    {
+        "name": "555电影",
+        "url": "https://www.5ying.fun",
+        "group": 2
+    },
+    {
+        "name": "16影视网",
+        "url": "http://www.169069.com",
+        "group": 2
+    },
+    {
+        "name": "追剧达人",
+        "url": "https://zhuijudr.com",
+        "group": 2
+    },
+    {
+        "name": "libvio",
+        "url": "https://www.libvio.me",
+        "group": 2
+    },
+    {
+        "name": "星空影视",
+        "url": "http://www.simeat.com",
+        "group": 2
+    },
+    {
+        "name": "美剧网",
+        "url": "https://mjw21.com",
+        "group": 2
+    },
+    {
+        "name": "北川影视",
+        "url": "https://www.bczhuiju.com",
+        "group": 2
+    },
+    {
+        "name": "追剧啦",
+        "url": "https://www.zhuiju.la",
+        "group": 2
+    },
+    {
+        "name": "电影淘淘",
+        "url": "https://www.dianyingtaotao.com",
+        "group": 2
+    },
+    {
+        "name": "新视觉影院",
+        "url": "https://www.6080dy4.com",
+        "group": 2
+    },
+    {
+        "name": "看看屋",
+        "url": "https://www.kkw361.com",
+        "group": 2
+    },
+    {
+        "name": "阿哥美剧",
+        "url": "https://agmov.com",
+        "group": 2
+    },
+    {
+        "name": "剧迷TV",
+        "url": "https://jumi.tv",
+        "group": 2
+    },
+    {
+        "name": "我爱跟剧",
+        "url": "https://www.genmov.com",
+        "group": 2
+    },
+    {
+        "name": "速影TV",
+        "url": "https://suyingtv.com",
+        "group": 2
+    },
+    {
+        "name": "神马影院",
+        "url": "https://www.shenma4480.com",
+        "group": 2
+    },
+    {
+        "name": "饭团影视",
+        "url": "https://www.fantuanhd.com",
+        "group": 2
+    },
+    {
+        "name": "哔嘀",
+        "url": "https://bde4.icu",
+        "group": 2
+    },
+    {
+        "name": "高端影视",
+        "url": "https://ddys.art",
+        "group": 2
+    },
+    {
+        "name": "七喜",
+        "url": "https://www.7xi.tv",
+        "group": 2
+    },
+    {
+        "name": "爱看",
+        "url": "https://www.ikandy.fun",
+        "group": 2
+    },
+    {
+        "name": "雪糕TV",
+        "url": "https://www.xgitv.com",
+        "group": 2
+    },
+    {
+        "name": "40影视",
+        "url": "https://40tl.com",
+        "group": 2
+    },
+    {
+        "name": "小熊",
+        "url": "https://www.xxys520.com",
+        "group": 2
+    },
+    {
+        "name": "楚门",
+        "url": "https://www.chumenys.com",
+        "group": 2
+    },
+    {
+        "name": "麻花视频",
+        "url": "http://www.mhyyy.com",
+        "group": 2
+    },
+    {
+        "name": "莫扎兔",
+        "url": "https://www.mozhatu.com",
+        "group": 2
+    },
+    {
+        "name": "蛋蛋赞",
+        "url": "https://dandanzan.net",
+        "group": 2
+    },
+    {
+        "name": "真不卡",
+        "url": "https://www.zbkk.net",
+        "group": 2
+    },
+    {
+        "name": "素白白",
+        "url": "https://www.subaibai.com",
+        "group": 2
+    },
+    {
+        "name": "思乐影视",
+        "url": "http://www.4ltv.com",
+        "group": 2
+    },
+    {
+        "name": "37电影网",
+        "url": "https://www.37dyw.com",
+        "group": 2
+    },
+    {
+        "name": "31看影视",
+        "url": "http://www.31kan.vip",
+        "group": 2
+    },
+    {
+        "name": "飞极速",
+        "url": "http://www.fjisu2.com",
+        "group": 2
+    },
+    {
+        "name": "小猫咪",
+        "url": "https://xmmi.xyz",
+        "group": 2
+    },
+    {
+        "name": "歪片星球",
+        "url": "https://waipian8.com",
+        "group": 2
+    },
+    {
+        "name": "鲨鱼TV",
+        "url": "https://www.sharktv.cn",
+        "group": 2
+    },
+    {
+        "name": "天空影视",
+        "url": "https://tkznp.com",
+        "group": 2
+    },
+    {
+        "name": "铁杆电影",
+        "url": "http://www.tgdy.net",
+        "group": 2
+    },
+    {
+        "name": "人人",
+        "url": "https://kuaizi.cc",
+        "group": 2
+    },
+    {
+        "name": "市中心",
+        "url": "https://www.ksksy.com",
+        "group": 2
+    },
+    {
+        "name": "万博影院",
+        "url": "https://www.wanbotv.com",
+        "group": 2
+    },
+    {
+        "name": "电影港",
+        "url": "http://www.dygang.net",
+        "group": 2
+    },
+    {
+        "name": "番茄影视",
+        "url": "http://www.jurenm.com",
+        "group": 2
+    },
+    {
+        "name": "NO视频",
+        "url": "http://www.novipnoad.com",
+        "group": 2
+    },
+    {
+        "name": "注视",
+        "url": "http://gaze.run",
+        "group": 2
+    },
+    {
+        "name": "Go影院",
+        "url": "http://www.aoob.top",
+        "group": 2
+    },
+    {
+        "name": "8 K ",
+        "url": "http://www.8kvod.com",
+        "group": 2
+    },
+    {
+        "name": "外剧网",
+        "url": "https://www.waiju.cc",
+        "group": 2
+    },
+    {
+        "name": "6V电影网",
+        "url": "http://www.6vhao.tv",
+        "group": 2
+    },
+    {
+        "name": "看剧吧",
+        "url": "http://kanjuba6.com",
+        "group": 2
+    },
+    {
+        "name": "天空",
+        "url": "http://tkznp.com",
+        "group": 2
+    },
+    {
+        "name": "电影天堂",
+        "url": "http://www.dytt8.net",
+        "group": 2
+    },
+    {
+        "name": "4K",
+        "url": "https://www.4kvm.com",
+        "group": 2
+    },
+    {
+        "name": "韩饭网",
+        "url": "https://www.hanfan.cc",
+        "group": 2
+    },
+    {
+        "name": "耐看点播",
+        "url": "https://www.nkvod.com",
+        "group": 2
+    },
+    {
+        "name": "干饭视频",
+        "url": "https://gfysys2.com",
+        "group": 2
+    },
+    {
+        "name": "稀饭影视",
+        "url": "https://www.xifanys.com",
+        "group": 2
+    },
+    {
+        "name": "奇优影院",
+        "url": "http://www.taoju.tv",
+        "group": 2
+    },
+    {
+        "name": "暖光影视",
+        "url": "https://www.bl210.top",
+        "group": 2
+    },
+    {
+        "name": "星辰影院",
+        "url": "https://www.skyy8.com",
+        "group": 2
+    },
+    {
+        "name": "热播之家",
+        "url": "https://rebozj.pro",
+        "group": 2
+    },
+    {
+        "name": "蓝光网",
+        "url": "http://www.languangdy.com",
+        "group": 2
+    },
+    {
+        "name": "胖虎影视",
+        "url": "https://www.panghuys.com",
+        "group": 2
+    },
+    {
+        "name": "可爱小猫咪",
+        "url": "https://xmaomi.top/",
+        "group": 2
+    }
+]
