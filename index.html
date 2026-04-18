@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For YYLIN 影视导航库</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-sub: #7f8c8d;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --hover-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin: 30px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        /* 响应式网格布局 */
+        .link-grid {
+            display: grid;
+            /* 自动填充，最小宽度 160px */
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        .link-card {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow);
+            height: 100%;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--primary-color);
+        }
+
+        .link-card span {
+            font-size: 0.95rem;
+            font-weight: 500;
+            /* 避免文字过长溢出 */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        .link-card .url-hint {
+            font-size: 0.7rem;
+            color: var(--text-sub);
+            margin-top: 5px;
+            opacity: 0.7;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--text-sub);
+            font-size: 0.8rem;
+        }
+
+        /* 移动端微调 */
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            header { padding: 20px 0; }
+            .link-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 10px;
+            }
+            .link-card { padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🎥 影视资源收藏</h1>
+        <p>多端适配 · 纯净无广告 · 快速跳转</p>
+    </header>
+
+    <div class="section-title">一、聚合网站</div>
+    <div class="link-grid">
+        <a href="https://cupfox.app" class="link-card" target="_blank"><span>茶杯狐</span><div class="url-hint">cupfox.app</div></a>
+        <a href="https://soupian.one" class="link-card" target="_blank"><span>搜片</span><div class="url-hint">soupian.one</div></a>
+        <a href="https://www.juheyingshi.com" class="link-card" target="_blank"><span>聚合影视</span><div class="url-hint">juheyingshi.com</div></a>
+        <a href="https://725998.com" class="link-card" target="_blank"><span>茶杯虎</span><div class="url-hint">725998.com</div></a>
+    </div>
+
+    <div class="section-title">二、影视网站</div>
+    <div class="link-grid">
+        <a href="https://www.jxsgssn.com" class="link-card" target="_blank"><span>大师兄影视</span></a>
+        <a href="https://www.qmintv.com" class="link-card" target="_blank"><span>全民影视</span></a>
+        <a href="https://www.freeok.vip" class="link-card" target="_blank"><span>FreeOk</span></a>
+        <a href="http://www.tvyb03.com" class="link-card" target="_blank"><span>TVB云播</span></a>
+        <a href="https://app.movie" class="link-card" target="_blank"><span>APP影院</span></a>
+        <a href="https://miao101.com" class="link-card" target="_blank"><span>旋风视频</span></a>
+        <a href="https://www.wuguiyy.com" class="link-card" target="_blank"><span>乌龟影院</span></a>
+        <a href="https://www.66s.cc" class="link-card" target="_blank"><span>新版6v影院</span></a>
+        <a href="https://www.wukongshipin.com" class="link-card" target="_blank"><span>悟空视频</span></a>
+        <a href="https://www.btnull.in" class="link-card" target="_blank"><span>BTNULL</span></a>
+        <a href="https://dmys1.com" class="link-card" target="_blank"><span>大米星球</span></a>
+        <a href="https://www.yiyi2.com" class="link-card" target="_blank"><span>一一影视</span></a>
+        <a href="http://ziziyy1.com" class="link-card" target="_blank"><span>子子影院</span></a>
+        <a href="https://www.ququmc.com" class="link-card" target="_blank"><span>扛把子影院</span></a>
+        <a href="https://www.paopaoshipin.com" class="link-card" target="_blank"><span>泡泡视频</span></a>
+        <a href="https://dabai66.com" class="link-card" target="_blank"><span>大白影视</span></a>
+        <a href="http://www.kuhuiv.com" class="link-card" target="_blank"><span>酷绘视频</span></a>
+        <a href="https://www.lkvod.cc" class="link-card" target="_blank"><span>来看点播</span></a>
+        <a href="https://www.2345ka.com" class="link-card" target="_blank"><span>喵喵电影</span></a>
+        <a href="http://aidi.tv" class="link-card" target="_blank"><span>爱迪</span></a>
+        <a href="https://chongtmtv.com" class="link-card" target="_blank"><span>TMTV</span></a>
+        <a href="https://www.dianyinggou.com" class="link-card" target="_blank"><span>电影狗</span></a>
+        <a href="https://www.5ying.fun" class="link-card" target="_blank"><span>555电影</span></a>
+        <a href="http://www.169069.com" class="link-card" target="_blank"><span>16影视网</span></a>
+        <a href="https://zhuijudr.com" class="link-card" target="_blank"><span>追剧达人</span></a>
+        <a href="https://www.libvio.me" class="link-card" target="_blank"><span>libvio</span></a>
+        <a href="http://www.simeat.com" class="link-card" target="_blank"><span>星空影视</span></a>
+        <a href="https://mjw21.com" class="link-card" target="_blank"><span>美剧网</span></a>
+        <a href="https://www.bczhuiju.com" class="link-card" target="_blank"><span>北川影视</span></a>
+        <a href="https://www.zhuiju.la" class="link-card" target="_blank"><span>追剧啦</span></a>
+        <a href="https://www.dianyingtaotao.com" class="link-card" target="_blank"><span>电影淘淘</span></a>
+        <a href="https://www.6080dy4.com" class="link-card" target="_blank"><span>新视觉影院</span></a>
+        <a href="https://www.kkw361.com" class="link-card" target="_blank"><span>看看屋</span></a>
+        <a href="https://agmov.com" class="link-card" target="_blank"><span>阿哥美剧</span></a>
+        <a href="https://jumi.tv" class="link-card" target="_blank"><span>剧迷TV</span></a>
+        <a href="https://www.genmov.com" class="link-card" target="_blank"><span>我爱跟剧</span></a>
+        <a href="https://suyingtv.com" class="link-card" target="_blank"><span>速影TV</span></a>
+        <a href="https://www.shenma4480.com" class="link-card" target="_blank"><span>神马影院</span></a>
+        <a href="https://www.fantuanhd.com" class="link-card" target="_blank"><span>饭团影视</span></a>
+        <a href="https://bde4.icu" class="link-card" target="_blank"><span>哔嘀</span></a>
+        <a href="https://ddys.art" class="link-card" target="_blank"><span>高端影视</span></a>
+        <a href="https://www.7xi.tv" class="link-card" target="_blank"><span>七喜</span></a>
+        <a href="https://www.ikandy.fun" class="link-card" target="_blank"><span>爱看</span></a>
+        <a href="https://www.xgitv.com" class="link-card" target="_blank"><span>雪糕TV</span></a>
+        <a href="https://40tl.com" class="link-card" target="_blank"><span>40影视</span></a>
+        <a href="https://www.xxys520.com" class="link-card" target="_blank"><span>小熊影视</span></a>
+        <a href="https://www.chumenys.com" class="link-card" target="_blank"><span>楚门影视</span></a>
+        <a href="http://www.mhyyy.com" class="link-card" target="_blank"><span>麻花视频</span></a>
+        <a href="https://www.mozhatu.com" class="link-card" target="_blank"><span>莫扎兔</span></a>
+        <a href="https://dandanzan.net" class="link-card" target="_blank"><span>蛋蛋赞</span></a>
+        <a href="https://www.zbkk.net" class="link-card" target="_blank"><span>真不卡</span></a>
+        <a href="https://www.subaibai.com" class="link-card" target="_blank"><span>素白白</span></a>
+        <a href="http://www.4ltv.com" class="link-card" target="_blank"><span>思乐影视</span></a>
+        <a href="https://www.37dyw.com" class="link-card" target="_blank"><span>37电影网</span></a>
+        <a href="http://www.31kan.vip" class="link-card" target="_blank"><span>31看影视</span></a>
+        <a href="http://www.fjisu2.com" class="link-card" target="_blank"><span>飞极速</span></a>
+        <a href="https://xmmi.xyz" class="link-card" target="_blank"><span>小猫咪影视</span></a>
+        <a href="https://waipian8.com" class="link-card" target="_blank"><span>歪片星球</span></a>
+        <a href="https://www.sharktv.cn" class="link-card" target="_blank"><span>鲨鱼TV</span></a>
+        <a href="https://tkznp.com" class="link-card" target="_blank"><span>天空影视</span></a>
+        <a href="http://www.tgdy.net" class="link-card" target="_blank"><span>铁杆电影</span></a>
+        <a href="https://kuaizi.cc" class="link-card" target="_blank"><span>人人(筷子)</span></a>
+        <a href="https://www.ksksy.com" class="link-card" target="_blank"><span>市中心影院</span></a>
+        <a href="https://www.wanbotv.com" class="link-card" target="_blank"><span>万博影院</span></a>
+        <a href="http://www.dygang.net" class="link-card" target="_blank"><span>电影港</span></a>
+        <a href="http://www.jurenm.com" class="link-card" target="_blank"><span>番茄影视</span></a>
+        <a href="http://www.novipnoad.com" class="link-card" target="_blank"><span>NO视频</span></a>
+        <a href="http://gaze.run" class="link-card" target="_blank"><span>注视影视</span></a>
+        <a href="http://www.8kvod.com" class="link-card" target="_blank"><span>8 K 影视</span></a>
+        <a href="https://www.waiju.cc" class="link-card" target="_blank"><span>外剧网</span></a>
+        <a href="http://www.6vhao.tv" class="link-card" target="_blank"><span>6V电影网</span></a>
+        <a href="http://kanjuba6.com" class="link-card" target="_blank"><span>看剧吧</span></a>
+        <a href="http://www.dytt8.net" class="link-card" target="_blank"><span>电影天堂</span></a>
+        <a href="https://www.4kvm.com" class="link-card" target="_blank"><span>4K电影</span></a>
+        <a href="https://www.hanfan.cc" class="link-card" target="_blank"><span>韩饭网</span></a>
+        <a href="https://www.nkvod.com" class="link-card" target="_blank"><span>耐看点播</span></a>
+        <a href="https://gfysys2.com" class="link-card" target="_blank"><span>干饭视频</span></a>
+        <a href="https://www.xifanys.com" class="link-card" target="_blank"><span>稀饭影视</span></a>
+        <a href="http://www.taoju.tv" class="link-card" target="_blank"><span>奇优影院</span></a>
+        <a href="https://www.bl210.top" class="link-card" target="_blank"><span>暖光影视</span></a>
+        <a href="https://www.skyy8.com" class="link-card" target="_blank"><span>星辰影院</span></a>
+        <a href="https://rebozj.pro" class="link-card" target="_blank"><span>热播之家</span></a>
+        <a href="http://www.languangdy.com" class="link-card" target="_blank"><span>蓝光网</span></a>
+        <a href="https://www.panghuys.com" class="link-card" target="_blank"><span>胖虎影视</span></a>
+        <a href="https://xmaomi.top/" class="link-card" target="_blank"><span>可爱小猫咪</span></a>
+    </div>
+
+    <footer>
+        &copy; 2026 私人影视导航 | 建议收藏至浏览器书签 | by Cidiry
+    </footer>
+</div>
+
+</body>
+</html>
