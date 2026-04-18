@@ -3,130 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For YYLIN 影视导航库</title>
+    <title>FOR YYLIN 影视导航库</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         :root {
-            --primary-color: #e74c3c; /* 电影热情的红色 */
+            --primary-color: #e74c3c;
             --bg-color: #f8f9fa;
             --card-bg: #ffffff;
             --text-main: #2d3436;
             --text-sub: #636e72;
-            --accent-color: #0984e3;
+            --border-color: #f1f2f6;
+            --fav-color: #f1c40f;
+            --status-online: #2ecc71;
+            --status-offline: #fab1a0;
+            --status-testing: #fdcb6e;
+        }
+
+        [data-theme='dark'] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-sub: #999;
+            --border-color: #333;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         body {
             font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             padding: 20px;
+            transition: all 0.3s ease;
         }
 
         .container { max-width: 1100px; margin: 0 auto; }
 
-        /* 头部 Logo 样式 */
-        header {
-            text-align: center;
-            padding: 50px 0 30px;
+        header { text-align: center; padding: 40px 0 20px; }
+        .logo-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 10px; }
+
+        .controls { margin: 20px 0; display: flex; justify-content: center; }
+        .btn-test {
+            background: var(--primary-color); color: white; border: none;
+            padding: 10px 28px; border-radius: 25px; cursor: pointer;
+            font-weight: bold; transition: 0.3s; box-shadow: 0 4px 12px rgba(231,76,60,0.2);
+            display: flex; align-items: center; gap: 8px;
         }
+        .btn-test:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        .logo-icon {
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            filter: drop-shadow(0 5px 15px rgba(231, 76, 60, 0.3));
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        header p { color: var(--text-sub); font-size: 0.9rem; }
-
-        /* 分类标题 */
-        .section-title {
+        /* 容器包裹层：实现左对齐 */
+        .filter-wrapper {
             display: flex;
             align-items: center;
-            margin: 40px 0 20px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-main);
+            margin: 20px 0 10px;
+            padding: 0 5px; /* 与下方的标题左对齐 */
         }
 
-        .section-title i {
-            margin-right: 10px;
-            color: var(--primary-color);
-            width: 24px;
-            text-align: center;
+        /* 提示文字样式 */
+        .filter-label {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-right: 15px;
+            white-space: nowrap;
+            font-weight: bold;
         }
 
-        /* 网格布局 */
-        .link-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 16px;
+        /* 标签容器：改为左对齐且去掉居中 */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-start; /* 改为左对齐 */
         }
+
+        /* 标签按钮微调：增加选中时的呼吸感 */
+        .tag-btn {
+            padding: 5px 16px;
+            border-radius: 8px; /* 方中带圆更有高级感 */
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-sub);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .tag-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+        }
+        .tag-btn {
+            padding: 6px 15px; border-radius: 20px; background: var(--card-bg);
+            border: 1px solid var(--border-color); color: var(--text-sub);
+            cursor: pointer; font-size: 0.85rem; transition: 0.3s;
+        }
+        .tag-btn.active { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+
+        .section-title { display: flex; align-items: center; margin: 30px 0 15px; font-size: 1.1rem; font-weight: 700; }
+        .section-title i { margin-right: 10px; color: var(--primary-color); }
+
+        .link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin-bottom: 30px; }
 
         .link-card {
-            background: var(--card-bg);
-            padding: 18px 12px;
-            border-radius: 14px;
-            text-decoration: none;
-            color: var(--text-main);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 1px solid transparent;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            background: var(--card-bg); padding: 22px 12px; border-radius: 14px;
+            text-decoration: none; color: var(--text-main); display: flex;
+            flex-direction: column; align-items: center; position: relative;
+            transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+            border: 1px solid var(--border-color);
         }
+        .link-card:hover { transform: translateY(-5px); border-color: var(--primary-color); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
 
-        .link-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: 0 12px 20px rgba(231, 76, 60, 0.1);
+        .fav-star {
+            position: absolute; top: 10px; left: 12px; font-size: 1.1rem;
+            color: #dfe6e9; cursor: pointer; z-index: 5; transition: color 0.2s;
         }
+        .fav-star.active { color: var(--fav-color); }
 
-        /* 卡片内的微型图标 */
-        .link-card i {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #dfe6e9;
-            transition: color 0.3s;
+        .status-badge { position: absolute; top: 14px; right: 14px; width: 8px; height: 8px; border-radius: 50%; background: #dfe6e9; }
+        .main-icon { font-size: 1.3rem; margin-bottom: 12px; color: var(--text-sub); opacity: 0.6; }
+        .link-card span { font-size: 0.95rem; font-weight: 600; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .status-text { font-size: 0.75rem; margin-top: 8px; color: var(--text-sub); }
+
+        .online { background: var(--status-online); box-shadow: 0 0 8px var(--status-online); }
+        .offline { background: var(--status-offline); }
+        .testing { background: var(--status-testing); animation: pulse 1s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        #fav-section { display: none; background: rgba(241, 196, 15, 0.05); padding: 20px; border-radius: 20px; border: 1px dashed var(--fav-color); margin-bottom: 40px; }
+
+        .theme-toggle {
+            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
+            border-radius: 50%; background: var(--primary-color); color: white;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 1.2rem; transition: 0.3s;
         }
+        .theme-toggle:hover { transform: rotate(30deg) scale(1.1); }
 
-        .link-card:hover i { color: var(--primary-color); }
+        footer { text-align: center; margin: 60px 0 30px; color: var(--text-sub); font-size: 0.8rem; }
 
-        .link-card span {
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            width: 100%;
-        }
-
-        footer {
-            text-align: center;
-            margin: 60px 0 30px;
-            color: #b2bec3;
-            font-size: 0.8rem;
-        }
-
-        /* 移动端适配 */
         @media (max-width: 600px) {
-            .link-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
-            header { padding: 30px 0 20px; }
-            .logo-icon { font-size: 2.5rem; }
+            .link-grid { grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); gap: 10px; }
+            header h1 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -134,120 +154,185 @@
 
 <div class="container">
     <header>
-        <div class="logo-icon">
-            <i class="fas fa-film"></i>
+        <div class="logo-icon"><i class="fas fa-film"></i></div>
+        <h1>FOR YYLIN 影视导航</h1>
+        <div class="controls">
+            <button class="btn-test" onclick="checkAllLinks()">
+                <i class="fas fa-bolt"></i> 点击测速 仅供参考（测速失败也有可能可以打开）
+            </button>
         </div>
-        <h1>影 视 导 航</h1>
-        <p>个人专属私藏 · 极致纯净导航</p>
     </header>
 
-    <div class="section-title">
-        <i class="fas fa-layer-group"></i> 聚合网站
-    </div>
-    <div class="link-grid">
-        <a href="https://cupfox.app" class="link-card" target="_blank"><i class="fas fa-search"></i><span>茶杯狐</span></a>
-        <a href="https://soupian.one" class="link-card" target="_blank"><i class="fas fa-search"></i><span>搜片</span></a>
-        <a href="https://www.juheyingshi.com" class="link-card" target="_blank"><i class="fas fa-search"></i><span>聚合影视</span></a>
-        <a href="https://725998.com" class="link-card" target="_blank"><i class="fas fa-search"></i><span>茶杯虎</span></a>
+    <div class="filter-wrapper">
+        <div class="filter-label"><i class="fas fa-filter"></i> 标签筛选:</div>
+        <div id="tag-filter" class="tag-container"></div>
     </div>
 
-    <div class="section-title">
-        <i class="fas fa-tv"></i> 影视网站
-    </div>
-    <div class="link-grid">
-        <a href="https://www.jxsgssn.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>大师兄影视</span></a>
-        <a href="https://www.qmintv.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>全民影视</span></a>
-        <a href="https://www.freeok.vip" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>FreeOk</span></a>
-        <a href="http://www.tvyb03.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>TVB云播</span></a>
-        <a href="https://app.movie" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>APP影院</span></a>
-        <a href="https://miao101.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>旋风视频</span></a>
-        <a href="https://www.wuguiyy.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>乌龟影院</span></a>
-        <a href="https://www.66s.cc" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>新版6v影院</span></a>
-        <a href="https://www.wukongshipin.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>悟空视频</span></a>
-        <a href="https://www.btnull.in" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>BTNULL</span></a>
-        <a href="https://dmys1.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>大米星球</span></a>
-        <a href="https://www.yiyi2.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>一一影视</span></a>
-        <a href="http://ziziyy1.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>子子影院</span></a>
-        <a href="https://www.ququmc.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>扛把子影院</span></a>
-        <a href="https://www.paopaoshipin.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>泡泡视频</span></a>
-        <a href="https://dabai66.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>大白影视</span></a>
-        <a href="http://www.kuhuiv.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>酷绘视频</span></a>
-        <a href="https://www.lkvod.cc" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>来看点播</span></a>
-        <a href="https://www.2345ka.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>喵喵电影</span></a>
-        <a href="http://aidi.tv" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>爱迪</span></a>
-        <a href="https://chongtmtv.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>TMTV</span></a>
-        <a href="https://www.dianyinggou.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>电影狗</span></a>
-        <a href="https://www.5ying.fun" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>555电影</span></a>
-        <a href="http://www.169069.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>16影视网</span></a>
-        <a href="https://zhuijudr.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>追剧达人</span></a>
-        <a href="https://www.libvio.me" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>libvio</span></a>
-        <a href="http://www.simeat.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>星空影视</span></a>
-        <a href="https://mjw21.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>美剧网</span></a>
-        <a href="https://www.bczhuiju.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>北川影视</span></a>
-        <a href="https://www.zhuiju.la" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>追剧啦</span></a>
-        <a href="https://www.dianyingtaotao.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>电影淘淘</span></a>
-        <a href="https://www.6080dy4.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>新视觉影院</span></a>
-        <a href="https://www.kkw361.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>看看屋</span></a>
-        <a href="https://agmov.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>阿哥美剧</span></a>
-        <a href="https://jumi.tv" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>剧迷TV</span></a>
-        <a href="https://www.genmov.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>我爱跟剧</span></a>
-        <a href="https://suyingtv.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>速影TV</span></a>
-        <a href="https://www.shenma4480.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>神马影院</span></a>
-        <a href="https://www.fantuanhd.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>饭团影视</span></a>
-        <a href="https://bde4.icu" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>哔嘀</span></a>
-        <a href="https://ddys.art" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>高端影视</span></a>
-        <a href="https://www.7xi.tv" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>七喜</span></a>
-        <a href="https://www.ikandy.fun" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>爱看</span></a>
-        <a href="https://www.xgitv.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>雪糕TV</span></a>
-        <a href="https://40tl.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>40影视</span></a>
-        <a href="https://www.xxys520.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>小熊</span></a>
-        <a href="https://www.chumenys.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>楚门</span></a>
-        <a href="http://www.mhyyy.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>麻花视频</span></a>
-        <a href="https://www.mozhatu.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>莫扎兔</span></a>
-        <a href="https://dandanzan.net" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>蛋蛋赞</span></a>
-        <a href="https://www.zbkk.net" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>真不卡</span></a>
-        <a href="https://www.subaibai.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>素白白</span></a>
-        <a href="http://www.4ltv.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>思乐影视</span></a>
-        <a href="https://www.37dyw.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>37电影网</span></a>
-        <a href="http://www.31kan.vip" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>31看影视</span></a>
-        <a href="http://www.fjisu2.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>飞极速</span></a>
-        <a href="https://xmmi.xyz" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>小猫咪</span></a>
-        <a href="https://waipian8.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>歪片星球</span></a>
-        <a href="https://www.sharktv.cn" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>鲨鱼TV</span></a>
-        <a href="https://tkznp.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>天空影视</span></a>
-        <a href="http://www.tgdy.net" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>铁杆电影</span></a>
-        <a href="https://kuaizi.cc" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>人人</span></a>
-        <a href="https://www.ksksy.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>市中心</span></a>
-        <a href="https://www.wanbotv.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>万博影院</span></a>
-        <a href="http://www.dygang.net" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>电影港</span></a>
-        <a href="http://www.jurenm.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>番茄影视</span></a>
-        <a href="http://www.novipnoad.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>NO视频</span></a>
-        <a href="http://gaze.run" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>注视</span></a>
-        <a href="http://www.aoob.top" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>Go影院</span></a>
-        <a href="http://www.8kvod.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>8 K </span></a>
-        <a href="https://www.waiju.cc" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>外剧网</span></a>
-        <a href="http://www.6vhao.tv" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>6V电影网</span></a>
-        <a href="http://kanjuba6.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>看剧吧</span></a>
-        <a href="http://tkznp.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>天空</span></a>
-        <a href="http://www.dytt8.net" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>电影天堂</span></a>
-        <a href="https://www.4kvm.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>4K</span></a>
-        <a href="https://www.hanfan.cc" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>韩饭网</span></a>
-        <a href="https://www.nkvod.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>耐看点播</span></a>
-        <a href="https://gfysys2.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>干饭视频</span></a>
-        <a href="https://www.xifanys.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>稀饭影视</span></a>
-        <a href="http://www.taoju.tv" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>奇优影院</span></a>
-        <a href="https://www.bl210.top" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>暖光影视</span></a>
-        <a href="https://www.skyy8.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>星辰影院</span></a>
-        <a href="https://rebozj.pro" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>热播之家</span></a>
-        <a href="http://www.languangdy.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>蓝光网</span></a>
-        <a href="https://www.panghuys.com" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>胖虎影视</span></a>
-        <a href="https://xmaomi.top/" class="link-card" target="_blank"><i class="far fa-play-circle"></i><span>可爱小猫咪</span></a>
+    <div id="fav-section">
+        <div class="section-title" style="color: var(--fav-color);"><i class="fas fa-star"></i> 我的收藏</div>
+        <div id="grid-fav" class="link-grid"></div>
     </div>
 
-    <footer>
-        <p><i class="fas fa-heart"></i> 2026 私人影视导航 | 建议收藏至浏览器书签 | by Cidiry</p>
-    </footer>
+    <div id="dynamic-content"></div>
+
+    <footer><p><i class="fas fa-heart"></i> 2026 私人影视导航 | 云端同步版 | by Cidiry</p></footer>
 </div>
 
+<div class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></div>
+
+<script>
+    const JSON_URL = 'https://raw.githubusercontent.com/cidiry/movie-site/refs/heads/main/website.json';
+
+    let config = { groups: [], sites: [] };
+    let favorites = JSON.parse(localStorage.getItem('yylin_favs')) || [];
+    let siteLatencies = {};
+    let currentTag = '全部';
+
+    async function init() {
+        const savedTheme = localStorage.getItem('yylin_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        try {
+            const response = await fetch(JSON_URL + '?t=' + Date.now());
+            if (!response.ok) throw new Error();
+            config = await response.json();
+
+            renderTags();
+            renderAll();
+        } catch (err) {
+            document.getElementById('dynamic-content').innerHTML = `<div style="text-align:center;color:red;padding:50px;">数据同步失败，请检查网络或JSON路径</div>`;
+        }
+    }
+
+    function renderTags() {
+        const tags = new Set(['全部']);
+        if (config.sites) {
+            config.sites.forEach(s => {
+                if (Array.isArray(s.tags)) s.tags.forEach(t => tags.add(t));
+                else if (typeof s.tags === 'string') tags.add(s.tags);
+            });
+        }
+        const container = document.getElementById('tag-filter');
+        container.innerHTML = Array.from(tags).map(tag => `
+            <button class="tag-btn ${currentTag === tag ? 'active' : ''}" onclick="filterByTag('${tag}')">${tag}</button>
+        `).join('');
+    }
+
+    window.filterByTag = function(tag) {
+        currentTag = tag;
+        renderTags();
+        renderAll();
+    };
+
+    function renderAll() {
+        const content = document.getElementById('dynamic-content');
+        content.innerHTML = '';
+        const filterFn = s => {
+            if (currentTag === '全部') return true;
+            if (!s.tags) return false;
+            return Array.isArray(s.tags) ? s.tags.includes(currentTag) : s.tags === currentTag;
+        };
+
+        config.groups.forEach(group => {
+            const sitesInGroup = config.sites.filter(s => s.group === group.id && filterFn(s));
+            if (sitesInGroup.length > 0) {
+                const html = `
+                    <div class="section-title"><i class="${group.icon}"></i> ${group.name}</div>
+                    <div class="link-grid">${sitesInGroup.map(s => createCardHTML(s)).join('')}</div>
+                `;
+                content.insertAdjacentHTML('beforeend', html);
+            }
+        });
+        updateFavSection();
+    }
+
+    function updateFavSection() {
+        const section = document.getElementById('fav-section');
+        const grid = document.getElementById('grid-fav');
+        if (favorites.length > 0) {
+            section.style.display = 'block';
+            grid.innerHTML = favorites.map(s => createCardHTML(s)).join('');
+        } else {
+            section.style.display = 'none';
+        }
+    }
+
+    function createCardHTML(site) {
+        const isFaved = favorites.some(f => f.url === site.url);
+        const latency = siteLatencies[site.url];
+        const statusClass = latency === 999999 ? 'offline' : (latency ? 'online' : '');
+        const statusTxt = latency === 999999 ? '超时' : (latency ? `${latency}ms` : '待检测');
+        const icon = config.groups.find(g => g.id === site.group)?.icon || 'fas fa-link';
+
+        return `
+            <div class="link-card" data-url="${site.url}">
+                <div class="fav-star ${isFaved ? 'active' : ''}" onclick="toggleFav(event, '${site.url}')">
+                    <i class="${isFaved ? 'fas' : 'far'} fa-star"></i>
+                </div>
+                <a href="${site.url}" target="_blank" style="text-decoration:none; color:inherit; display:contents;">
+                    <div class="status-badge ${statusClass}"></div>
+                    <i class="${icon} main-icon"></i>
+                    <span>${site.name}</span>
+                    <div class="status-text">${statusTxt}</div>
+                </a>
+            </div>`;
+    }
+
+    async function testSite(url) {
+        const ctrl = new AbortController();
+        const tid = setTimeout(() => ctrl.abort(), 4000);
+        const start = Date.now();
+        try {
+            await fetch(url, { mode: 'no-cors', signal: ctrl.signal, cache: 'no-cache' });
+            const ms = Date.now() - start;
+            siteLatencies[url] = ms;
+            return ms;
+        } catch {
+            siteLatencies[url] = 999999;
+            return 999999;
+        } finally { clearTimeout(tid); }
+    }
+
+    window.checkAllLinks = async function() {
+        siteLatencies = {};
+        const sites = [...config.sites];
+        let index = 0;
+        const batchSize = 20;
+
+        const runTask = async () => {
+            if (index >= sites.length) return;
+            const site = sites[index++];
+            await testSite(site.url);
+            config.sites.sort((a, b) => (siteLatencies[a.url] || 888888) - (siteLatencies[b.url] || 888888));
+            renderAll();
+            await runTask();
+        };
+
+        for (let i = 0; i < Math.min(batchSize, sites.length); i++) runTask();
+    };
+
+    window.toggleFav = function(e, url) {
+        e.stopPropagation(); e.preventDefault();
+        const site = config.sites.find(s => s.url === url) || favorites.find(s => s.url === url);
+        const idx = favorites.findIndex(f => f.url === url);
+        idx > -1 ? favorites.splice(idx, 1) : favorites.push(site);
+        localStorage.setItem('yylin_favs', JSON.stringify(favorites));
+        renderAll();
+    };
+
+    window.toggleTheme = function() {
+        const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('yylin_theme', theme);
+        updateThemeIcon(theme);
+    };
+
+    function updateThemeIcon(t) {
+        document.querySelector('.theme-toggle i').className = t === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+
+    init();
+</script>
 </body>
 </html>
